@@ -10,12 +10,16 @@ let tarefas = [
     marcado: false
   }
 ];
-let botaoEl = document.querySelector("#incluir-nova-tarefa"),
+let botaoMinimizar = document.querySelector("#minimizar"),
+    logo = document.querySelector("#marca"),
+    botaoEl = document.querySelector("#incluir-nova-tarefa"),
     inputTarefas = document.querySelector("#nova-tarefa-nome"),
-    categoria = document.querySelector("#nova-tarefa-categoria");
+    categoria = document.querySelector("#nova-tarefa-categoria"),
+    sera = sessionStorage.getItem('minimizado');
 for(let i=0;i<tarefas.length;i++) {
   insereTarefaNaPagina(tarefas[i]);
 }
+if(sera === 'true') logo.classList.toggle('minimizado');
 botaoEl.addEventListener('click', function() {
   tarefas.push(new Object);
   tarefas[tarefas.length-1].nome = inputTarefas.value;
@@ -55,10 +59,27 @@ botaoSalvar.addEventListener('click', function() {
   localStorage.setItem('lista', JSON.stringify(tarefas));
 });
 botaoCarregar.addEventListener('click', function() {
+  let listaTarefas =  document.querySelector("#lista-tarefas");
+  listaTarefas.innerHTML = '';
+  for(let i=0;i<tarefas.length;i++) {
+    tarefas[i] = '';
+  }
   inputNome.value = localStorage.getItem('dono-da-lista');
   let aux = localStorage.getItem('lista');
   tarefas = JSON.parse(aux);
-  for(let i=0;i<tarefas.length-1;i++) {
+  for(let i=0;i<tarefas.length;i++) {
     insereTarefaNaPagina(tarefas[i]);
   }
 });
+botaoMinimizar.addEventListener('click', function() {
+  minimizarOuNao();
+})
+function minimizarOuNao() {
+  logo.classList.toggle('minimizado');
+  if(logo.classList.contains('minimizado')) {
+    sessionStorage.setItem('minimizado', 'true');
+  }
+  else {
+    sessionStorage.setItem('minimizado', 'false');
+  }
+};

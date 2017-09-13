@@ -24,17 +24,17 @@ body.animando {
 /* faz o fundo ir clareando/escurecendo */
 @keyframes altera-fundo {
   0% {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.3);
   }
   100% {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.0);
   }
 }
 
 #marca {
   font-family: 'Gorditas', cursive;
   font-weight: normal;
-  font-size: 4em;
+  font-size: 4rem;
   line-height: 0.75em;
   color: #e84a4a;
   text-shadow: 1px 1px black;
@@ -51,7 +51,7 @@ body.animando {
   min-width: 300px;
   max-width: 900px;
   text-align: left;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
               0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
@@ -88,7 +88,7 @@ body.animando {
 #nova-tarefa-nome,
 .item-tarefa {
   box-sizing: border-box;
-  padding: 0.5em 0.5em 0.5em 1.5em;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
   background-color: white;
 }
 
@@ -103,17 +103,8 @@ body.animando {
 }
 
 #incluir-nova-tarefa {
-  width: 3em;
+  width: 3rem;
   cursor: pointer;
-}
-
-#incluir-nova-tarefa:hover {
-  background-color: silver;
-  outline: 1px solid rgba(0, 0, 128, 0.3);
-}
-
-#incluir-nova-tarefa:active {
-  background-color: gray;
 }
 
 .item-tarefa {
@@ -153,6 +144,10 @@ body.animando {
   color: silver;
   float: right;
 }
+
+/* --------------------------------------------
+ * Novos estilos para a prática de WebStorage
+ */
 #info-usuario {
   display: flex;
   border-radius: 9px 9px 0 0;
