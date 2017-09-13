@@ -153,3 +153,100 @@ body.animando {
   color: silver;
   float: right;
 }
+#info-usuario {
+  display: flex;
+  border-radius: 9px 9px 0 0;
+  font-size: 75%;
+  background-color: rgba(255,255,255,.5);
+}
+
+#info-usuario > * {
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  margin: 0.5rem 0;
+}
+
+#info-usuario::before {
+  content: " ";
+  display: inline-block;
+  width: 52px;
+  box-sizing: border-box;
+  background-image: url(imgs/icone.png);
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: 1.5rem center;
+}
+
+#info-usuario > label {
+  color: #5C6BC0;
+  cursor: pointer;
+}
+
+#nome-usuario {
+  flex: 1;
+  font: inherit;
+  border-width: 0;
+  outline-width: 0;
+  color: #464d9a;
+  background-color: transparent;
+}
+
+#nome-usuario::-webkit-input-placeholder {
+  color: #8e97ff;
+}
+
+#salvar,
+#carregar {
+  font: inherit;
+  outline: none;
+  border: none;
+  box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+  cursor: pointer;
+  margin: 0;
+  padding-left: 0.5rem;
+}
+
+#salvar {
+  border-top-right-radius: 9px;
+  margin-left: 1px;
+}
+
+button:hover {
+  outline: 1px solid rgba(0, 0, 128, 0.3) !important;
+  background-color: silver !important;
+}
+
+button:active {
+  background-color: gray !important;
+}
+
+#marca {
+  position: relative;
+  transition: all 200ms ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#marca.minimizado {
+  height: 0.5em;
+  padding: 0;
+  margin: 0.25em;
+  color: transparent;
+  text-shadow: none;
+}
+
+#minimizar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border-width: 0;
+  background-color: lightyellow;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scale(0.75);
+  cursor: pointer;
+}
+
+#minimizar:hover {
+  outline: none !important;
+}

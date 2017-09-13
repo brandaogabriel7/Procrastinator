@@ -10,7 +10,6 @@ let tarefas = [
     marcado: false
   }
 ];
-
 let botaoEl = document.querySelector("#incluir-nova-tarefa"),
     inputTarefas = document.querySelector("#nova-tarefa-nome"),
     categoria = document.querySelector("#nova-tarefa-categoria");
@@ -48,3 +47,18 @@ function insereTarefaNaPagina(tarefas) {
       }
       item.classList.add('categoria-' + tarefas.categoria);
 }
+let botaoSalvar = document.querySelector("#salvar"),
+    botaoCarregar = document.querySelector("#carregar"),
+    inputNome = document.querySelector("#nome-usuario");
+botaoSalvar.addEventListener('click', function() {
+  localStorage.setItem('dono-da-lista', inputNome.value);
+  localStorage.setItem('lista', JSON.stringify(tarefas));
+});
+botaoCarregar.addEventListener('click', function() {
+  inputNome.value = localStorage.getItem('dono-da-lista');
+  let aux = localStorage.getItem('lista');
+  tarefas = JSON.parse(aux);
+  for(let i=0;i<tarefas.length-1;i++) {
+    insereTarefaNaPagina(tarefas[i]);
+  }
+});
